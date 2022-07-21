@@ -1,0 +1,4 @@
+# Find all .js files with sleeps in them and print command to remove those lines
+find test-scripts/features/step-definitions/*.js -exec grep -l sleep {} \; | while read line; do
+    echo "sed -n -i .bak '/sleep/!p' $line"
+done
